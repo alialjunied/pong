@@ -419,6 +419,12 @@ function PongServer() {
                         case "delay":
                             players[conn.id].delay = message.delay;
                             break;
+                        case "updateFromClient":
+                            ball.x = message.x;
+                            ball.y = message.y;
+                            ball.setVx(message.vX);
+                            ball.setVy(message.vY);
+                            break
                         default:
                             console.log("Unhandled " + message.type);
                     }

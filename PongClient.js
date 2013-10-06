@@ -200,8 +200,13 @@ function PongClient() {
                     sentReset = false; //update this as new game
                     ball.reset = false;
                     ball.startMoving();
+                    //update rendered paddle y
                     myPaddle.y = message.myPaddleY;
                     opponentPaddle.y = message.opponentPaddleY;
+                    //update future to-be-rendered paddle y
+                    curState.myPaddle.y = message.myPaddleY;
+                    curState.opponentPaddle.y = message.opponentPaddleY;
+                    render();
                     updateClient();
                     //animateId = window.requestAnimationFrame(updateClient, document.getElementById('playArea'));
 					break;
@@ -301,7 +306,11 @@ function PongClient() {
         var current_state = curState;
         //update what is rendered with current state of the game for myPaddle/opponent/ball
 
+        //myPaddle.x = current_state.myPaddle.x;
+        //myPaddle.y = current_state.myPaddle.y;
         myPaddle = current_state.myPaddle;
+        //opponentPaddle.x = current_state.opponentPaddle.x;
+        //opponentPaddle.y = current_state.opponentPaddle.y;
         opponentPaddle = current_state.opponentPaddle;
         ball = current_state.ball;
         //ball.y = current_state.ball.y;
@@ -652,15 +661,32 @@ function PongClient() {
             topPaddle = curState.opponentPaddle;
             bottomPaddle = curState.myPaddle;
         }
-        if(curState.ball.isMoving()){ //if ball is moving, update next step.
+
+        if(curState.ball.isMoving())
+        {  //if ball is moving, update next step.
             curState.ball.moveOneStep(topPaddle, bottomPaddle,largestDelay);
+
+            if(ball.x >= 20/2 && ball.x <= Pong.WIDTH - 20/2) //near paddle
+            {
+                if(ball.y + 20/2<= Pong.HEIGHT && ball.y - 20/2>=0)   // top or bottom
+                {
+                    if(ball.y < Pong.HEIGHT/20 && myPaddle.y < Pong.HEIGHT/2 && ball.y > Paddle.HEIGHT )
+                    {
+                        sendToServer({type:"updateFromClient", x:ball.x, y:ball.y, vX: ball.getVx(), vY: ball.getVy()});
+                    }
+                    else if(ball.y > Pong.HEIGHT - (Pong.HEIGHT/20) && myPaddle.y > Pong.HEIGHT/2 && ball.y < Pong.HEIGHT - Paddle.HEIGHT)
+                    {
+                        sendToServer({type:"updateFromClient", x:ball.x, y:ball.y, vX: ball.getVx(), vY: ball.getVy()});
+                    }
+                }
+            }
         }
         //
         //if ball not moving (ball position now updated in center)
         //since clientMoveBall is in loop
         //sentReset stops multiple reset msgs to server
 
-       /* else if(!curState.ball.isMoving() && !sentReset) //else if ball not moving and not sentReset
+        /*else if(!curState.ball.isMoving() && !sentReset) //else if ball not moving and not sentReset
         {
             //console.log("Entered Reset");
 
@@ -675,7 +701,7 @@ function PongClient() {
             lastClientUpdateTime = 0;
             render();
 
-        } */
+        }*/
     }
     /*
      * private method: render
