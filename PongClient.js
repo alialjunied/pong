@@ -185,12 +185,8 @@ function PongClient() {
                         ball.setMoving(false);
                         curState.ball.setMoving(false);
                         window.cancelAnimationFrame(animateId);
-                        //ball = new Ball();
-                        //curState.ball = new Ball();
-                        //myPaddle = new Paddle(Pong.HEIGHT);
-                        //opponentPaddle = new Paddle(Paddle.HEIGHT);
-                        //render();
-
+                        ball.x = Pong.WIDTH/2;
+                        ball.y = Pong.HEIGHT/2;
                         render();
                         sentReset = true;
                         /* stop animation */
@@ -408,10 +404,10 @@ function PongClient() {
             opponentPaddle.x =  lerp(opponentPaddle.x, opponentPaddleGhost, stateUpdateDeltaTime * smoothingPaddle);
             opponentPaddle.y = latestServerUpdate.opponentPaddleY;
 
-            curState.ball.setVx(nextPos.ballVx);
-            curState.ball.setVy(nextPos.ballVy);
-            curState.ball.x = nextPos.ballX;
-            curState.ball.y = nextPos.ballY;
+            ball.setVx(nextPos.ballVx);
+            ball.setVy(nextPos.ballVy);
+            ball.x = nextPos.ballX;
+            ball.y = nextPos.ballY;
 
             /*
             var lerpBallPos = true;
@@ -526,10 +522,10 @@ function PongClient() {
         inputs.push(userInput);
         //store snapshot of user inputs
         //inputs.push(userInput);
-        if(ball.isMoving()){
+        //if(ball.isMoving()){
             //console.log("Client SEND inputSeqNo: " + inputSeqNo);
             sendToServer({type:"input", input: userInput});
-        }
+        //}
     }
 
     /*
@@ -632,13 +628,12 @@ function PongClient() {
     }
 
     window.cancelAnimationFrame = function ( id ) {
-        clearTimeout(id);
+        window.clearTimeout(id);
         //clearInterval(id);
     }
     var updateClient = function(){
         processServerUpdates();
         updateLocalPosition();
-        //clientMoveBall();
         render();
         animateId = window.requestAnimationFrame(updateClient, document.getElementById('playArea'));
 
@@ -646,7 +641,6 @@ function PongClient() {
     }
 
     var clientMoveBall = function(){
-
 
         if(curState.myPaddle.y < curState.opponentPaddle.y)
         {
@@ -666,7 +660,7 @@ function PongClient() {
         //since clientMoveBall is in loop
         //sentReset stops multiple reset msgs to server
 
-        else if(!curState.ball.isMoving() && !sentReset) //else if ball not moving and not sentReset
+       /* else if(!curState.ball.isMoving() && !sentReset) //else if ball not moving and not sentReset
         {
             //console.log("Entered Reset");
 
@@ -681,7 +675,7 @@ function PongClient() {
             lastClientUpdateTime = 0;
             render();
 
-        }
+        } */
     }
     /*
      * private method: render
@@ -753,11 +747,11 @@ function PongClient() {
     initNetwork();
     initGUI();
     render();
-    createTimer();
 
+    createTimer();
     startGameStates(); //start game state updates process user input client prediction at  15ms
-    //updateClient();
-    animateId = window.requestAnimationFrame(updateClient, document.getElementById('playArea'));
+   //updateClient();
+    //animateId = window.requestAnimationFrame(updateClient, document.getElementById('playArea'));
     // Start drawing
     //setInterval(function() {render();}, 1000/Pong.FRAME_RATE);
     //end of this.start()

@@ -82,17 +82,18 @@ function PongServer() {
      */
     var reset = function () {
         // Clears gameInterval and set it to undefined
-        if (gameInterval !== undefined) {
+        //if (gameInterval !== undefined) {
             clearInterval(gameInterval);
             gameInterval = undefined;
+        //}
+        //if (gameStateInterval !== undefined){
             clearInterval(gameStateInterval);
             gameStateInterval = undefined;
-            //Ali
-            p1LastAckInputSeqNo = 0;
-            p2LastAckInputSeqNo = 0;
-            p1Inputs = [];
-            p2Inputs = [];
-        }
+        //}
+        p1LastAckInputSeqNo = 0;
+        p2LastAckInputSeqNo = 0;
+        p1Inputs = [];
+        p2Inputs = [];
     }
 
 
@@ -237,11 +238,11 @@ function PongServer() {
 
             //if ball not moving
             //ball reset and server has not sent reset broadcast
-            } /*else if (!ball.isMoving() && !sentReset){
+            } else if (!ball.isMoving()){
                 sentReset = true;
                 broadcast({type:"reset"});
                 reset();
-        } */
+        }
     }
 
     /*
@@ -268,6 +269,7 @@ function PongServer() {
             // Everything is a OK
             //Start Game
 			console.log("Enter startgame function");
+            sentReset = false;
 			var startStateP1 =
 			{ 
                 type: "startGame",
@@ -291,7 +293,7 @@ function PongServer() {
             setTimeout(unicast, largestDelay, sockets[1], startStateP1);
 			setTimeout(unicast, largestDelay, sockets[2], startStateP2);
             ball.startMoving();
-            sentReset = false;
+
             //Server GameState Update Loop
             gameInterval = setInterval(function() {gameLoop();}, serverSendUpdateFrequency); // serverUpdateLoop * 3 = 30ms
             gameStateInterval = setInterval(function(){ updateGameState();}, gameStateUpdateFrequency);
@@ -384,11 +386,19 @@ function PongServer() {
                             break;
 
                         // client sends restart Game
-						case "reset":
+                        case "reset":
+                            var resetMsg = {type: "reset"};
+                            reset();
                             if (!sentReset){ //server did not send reset
+                                //reset server
+
                                 sentReset = true;
-							    reset(); //reset server
-                                broadcast({type: reset}); //tell other client
+                                if (conn.id == 1){
+                                    setTimeout(unicast, largestDelay, sockets[2], resetMsg);
+                                }
+                                else if (conn.id == 2){
+                                    setTimeout(unicast, largestDelay, sockets[1], resetMsg);
+                                }
                             }
 							break;
 

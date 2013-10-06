@@ -4,8 +4,8 @@
     <list default="true" id="0d9ac45b-2404-4931-8efb-92e188196f6f" name="Default" comment="" />
     <ignored path="working_final.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/PongServer.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1381045653811" ignored="false" />
-    <file path="/PongClient.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1381046193558" ignored="false" />
+    <file path="/PongServer.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1381047329258" ignored="false" />
+    <file path="/PongClient.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1381050747142" ignored="false" />
     <file path="$PROJECT_DIR$/../working_final/PongClient.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1380818833005" ignored="false" />
     <file path="/Ball.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1381043412603" ignored="false" />
     <file path="$PROJECT_DIR$/../working_final_V2/PongServer.js" changelist="0d9ac45b-2404-4931-8efb-92e188196f6f" time="1380897283643" ignored="false" />
@@ -32,14 +32,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5012626">
       <split-first>
         <leaf>
-          <file leaf-file-name="PongClient.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="PongClient.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PongClient.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="411" column="45" selection-start="17211" selection-end="17211" vertical-scroll-proportion="0.5883333">
-                  <folding>
-                    <element signature="e#19812#20861#0" expanded="false" />
-                    <element signature="e#21114#21874#0" expanded="false" />
-                  </folding>
+                <state line="201" column="51" selection-start="7378" selection-end="7378" vertical-scroll-proportion="0.65909094">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -75,10 +72,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="PongServer.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="PongServer.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/PongServer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="120" column="38" selection-start="3679" selection-end="3679" vertical-scroll-proportion="0.74608696">
+                <state line="251" column="52" selection-start="8265" selection-end="8265" vertical-scroll-proportion="-12.28">
                   <folding />
                 </state>
               </provider>
@@ -102,10 +99,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Ball.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="Ball.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Ball.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="64" column="27" selection-start="1878" selection-end="1878" vertical-scroll-proportion="-14.96">
+                <state line="36" column="37" selection-start="870" selection-end="870" vertical-scroll-proportion="-1.3246753">
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -134,8 +131,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1401" />
-    <option name="height" value="1010" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -224,15 +223,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1401" height="1010" extended-state="0" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0066079297" sideWeight="0.56183743" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21790342" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0066079297" sideWeight="0.22025913" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0054315026" sideWeight="0.56416184" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21387284" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0054315026" sideWeight="0.22080925" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -307,17 +306,14 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="35" />
+      <option name="time" value="40" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/PongClient.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="309" column="12" selection-start="11756" selection-end="11756" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#19812#20861#0" expanded="false" />
-            <element signature="e#21114#21874#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -386,22 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Paddle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="24" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ball.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="27" selection-start="1878" selection-end="1878" vertical-scroll-proportion="-14.96">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.WebStorm6/system/extLibs/nodejs-v0.10.18-src/core-modules-sources/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="0" selection-start="3264" selection-end="3264" vertical-scroll-proportion="0.0">
@@ -418,17 +398,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PongServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="38" selection-start="3679" selection-end="3679" vertical-scroll-proportion="0.74608696">
+        <state line="251" column="52" selection-start="8265" selection-end="8265" vertical-scroll-proportion="-12.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Paddle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="24" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PongClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="411" column="45" selection-start="17211" selection-end="17211" vertical-scroll-proportion="0.5883333">
+        <state line="201" column="51" selection-start="7378" selection-end="7378" vertical-scroll-proportion="0.65909094">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ball.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="37" selection-start="870" selection-end="870" vertical-scroll-proportion="-1.3246753">
           <folding>
-            <element signature="e#19812#20861#0" expanded="false" />
-            <element signature="e#21114#21874#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
