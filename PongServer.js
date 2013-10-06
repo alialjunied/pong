@@ -45,6 +45,8 @@ function PongServer() {
     //Reset Condition
     var sentReset = false;
     var serverStarted = false;
+
+    var lastStateUpdate = new Date().getTime();
     /*
      * private method: broadcast(msg)
      *
@@ -152,6 +154,7 @@ function PongServer() {
                 }
 
             }
+
         }
 
     }
@@ -166,7 +169,7 @@ function PongServer() {
         processInputs(p1, p1Inputs);
         processInputs(p2, p2Inputs);
         ball.moveOneStep(p1.paddle, p2.paddle,largestDelay);
-
+        lastStateUpdate = ball.getLastUpdate();
     }
     /*
      * private method: gameLoop()
@@ -196,8 +199,8 @@ function PongServer() {
                 type: "update",
 				largestDelay:largestDelay,
                 lastProcessedInputSeqNo: p1LastAckInputSeqNo,
-                time: new Date().getTime(),
-                ballLastUpdate: ball.lastUpdate,
+                time: new Date().getTime(), //using ball.getLastUpdate() for update msg timestamp
+                //ballLastUpdate: ball.getLastUpdate(),
                 ballMoving: ball.isMoving(),
                 ballX: predictedBallX,
                 ballY: predictedBallY,
@@ -217,8 +220,8 @@ function PongServer() {
                 type: "update",
 				largestDelay:largestDelay,
                 lastProcessedInputSeqNo: p2LastAckInputSeqNo,
-                time: new Date().getTime(),
-                ballLastUpdate: ball.lastUpdate,
+                time: lastStateUpdate,
+                //ballLastUpdate: ball.getLastUpdate(),
                 ballMoving: ball.isMoving(),
                 ballX: predictedBallX,
                 ballY: predictedBallY,

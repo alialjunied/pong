@@ -183,9 +183,10 @@ function PongClient() {
                         lastAckInput = 0;
                         lastClientUpdateTime = 0;
                         ball.setMoving(false);
+                        curState.ball.setMoving(false);
                         window.cancelAnimationFrame(animateId);
-                        ball = new Ball();
-                        curState.ball = new Ball();
+                        //ball = new Ball();
+                        //curState.ball = new Ball();
                         //myPaddle = new Paddle(Pong.HEIGHT);
                         //opponentPaddle = new Paddle(Paddle.HEIGHT);
                         //render();
@@ -409,6 +410,8 @@ function PongClient() {
 
             curState.ball.setVx(nextPos.ballVx);
             curState.ball.setVy(nextPos.ballVy);
+            curState.ball.x = nextPos.ballX;
+            curState.ball.y = nextPos.ballY;
 
             /*
             var lerpBallPos = true;
@@ -655,7 +658,7 @@ function PongClient() {
             topPaddle = curState.opponentPaddle;
             bottomPaddle = curState.myPaddle;
         }
-        if(ball.isMoving()){ //if ball is moving, update next step.
+        if(curState.ball.isMoving()){ //if ball is moving, update next step.
             curState.ball.moveOneStep(topPaddle, bottomPaddle,largestDelay);
         }
         //

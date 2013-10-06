@@ -106,6 +106,9 @@ function Ball() {
 	this.getVx = function() {
 		return vx;
 	}
+    this.getLastUpdate = function() {
+        return lastUpdate;
+    }
 
 
     /*
